@@ -14,7 +14,6 @@ body {
     overflow: hidden;
 }
 
-/* Fundo com estrelas */
 .stars {
     width: 100%;
     height: 100%;
@@ -28,7 +27,6 @@ body {
     to {background-position: 1000px 1000px;}
 }
 
-/* Container central */
 .container {
     position: relative;
     z-index: 2;
@@ -44,7 +42,6 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* Caixa da key */
 .key-box {
     padding: 20px 40px;
     border-radius: 15px;
@@ -54,7 +51,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Botão */
 button {
     padding: 12px 25px;
     border: none;
@@ -105,8 +101,8 @@ if (!key) {
 } else {
     keyBox.innerText = key;
 
-    // 🔗 conecta com sua API (troca pelo seu IP)
-    fetch("http://SEU_IP:5000/check-key?key=" + key)
+    // 🔥 SUA API AQUI
+    fetch("https://bot-validacao2.onrender.com/check-key?key=" + key)
     .then(res => res.json())
     .then(data => {
         if (data.status === "ok") {
@@ -118,11 +114,10 @@ if (!key) {
         }
     })
     .catch(() => {
-        status.innerText = "❌ Erro ao conectar";
+        status.innerText = "❌ Erro ao conectar com servidor";
     });
 }
 
-// copiar key
 function copyKey() {
     navigator.clipboard.writeText(key);
     alert("Key copiada!");
