@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validando...</title>
+</head>
+<body>
+
+<h1>🔄 Aguarde, validando...</h1>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const codigo = params.get("Key");
+const token = params.get("token");
+
+if (codigo && token) {
+    fetch("https://bot-validacao2.onrender.com/confirmar?codigo=" + codigo + "&token=" + token)
+    .then(() => {
+        document.body.innerHTML = "<h1>✅ Validado! Pode voltar pro bot</h1>";
+    });
+}
+</script>
+
+</body>
+</html>
